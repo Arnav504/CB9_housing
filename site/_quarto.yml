@@ -26,7 +26,6 @@ website:
       - href: report.qmd
         text: Recommendations
   page-footer:
-    left: "Prepared by Arnav Sahai."
     right: "[Download the PDF](files/cb9-housing-analysis.pdf)"
 
 format:

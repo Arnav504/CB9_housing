@@ -6,8 +6,6 @@ title: "CB9 housing analysis"
 
 This site walks through the housing analysis for Manhattan Community Board 9 and ends at the report. It shows where the data comes from, how each pipeline is retrieved, how the comparisons are made, and how the Service Saturation Index is calculated. The recommendations are the actions the report asks the board to take.
 
-Prepared by Arnav Sahai.
-
 ## Two questions
 
 1. **Affordability.** When a project is marketed at a share of regional Area Median Income, what income does that require, and how does that compare with households in Western Harlem?

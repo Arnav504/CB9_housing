@@ -25,12 +25,12 @@ flowchart LR
 | American Community Survey, 2023 five-year | Median income, poverty, rent, population, and household income brackets for each MN09 tract | Census Bureau summary files, or the Census API when a key is set |
 | NYC Planning tract file | Which 2020 tracts belong to Manhattan Community District 9, and their neighborhood names | NYC Planning boundaries |
 | NYCHA income limits, 2025 | Income limits for a three-person household at 30, 50, 60, 80, and 100 percent of AMI | NYCHA rent and income table |
-| HPD Affordable Housing Production by Building | Building-level unit counts for community board MN-09 | NYC Open Data `hg8x-zxpr` |
-| NYCHA Development Data Book | Apartment count for General Grant Houses | NYC Open Data `evjd-dqpz`, data as of January 1, 2025 |
-| NYC PLUTO | Residential units and community district for Morningside Gardens and the examined ANCP addresses | NYC Open Data `64uk-42ks` |
+| HPD Affordable Housing Production by Building | Building-level unit counts for community board MN-09 | <https://data.cityofnewyork.us/Housing-Development/Affordable-Housing-Production-by-Building/hg8x-zxpr> |
+| NYCHA Development Data Book | Apartment count for General Grant Houses, data as of January 1, 2025 | <https://data.cityofnewyork.us/Housing-Development/NYCHA-Development-Data-Book/evjd-dqpz> |
+| NYC PLUTO | Residential units and community district for Morningside Gardens and the examined ANCP addresses | <https://data.cityofnewyork.us/City-Government/Primary-Land-Use-Tax-Lot-Output-PLUTO-/64uk-42ks> |
 | Manhattan Borough President recommendation | Status and approximate size of 1727 Amsterdam Avenue | Borough president recommendation, December 10, 2025 |
-| 311 service requests | Complaint counts for Manhattan Community Board 9 in 2023 and 2024 | NYC Open Data `erm2-nwe9` |
-| NYC Facilities Database | Mental-health sites, food pantries, soup kitchens, and supportive-housing sites in community district 109 | NYC Open Data `ji82-xba5`. Capacity is 0, so supportive-housing units are not taken from this file |
+| 311 service requests | Complaint counts for Manhattan Community Board 9 in 2023 and 2024 | <https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9> |
+| NYC Facilities Database | Mental-health sites, food pantries, soup kitchens, and supportive-housing sites in community district 109. Capacity is 0, so supportive-housing units are not taken from this file | <https://data.cityofnewyork.us/City-Government/Facilities-Database/ji82-xba5> |
 
 Census Reporter, Data Commons, the Furman Center neighborhood profile, the NYC Housing Conference tracker, and the Department of City Planning community profile are the context sources named alongside these files. URLs are listed in `pipelines/source_log.csv`.
 
