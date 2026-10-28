@@ -1,0 +1,3 @@
+project_id,display_name,project_name,address,source,source_url,kind
+grant_houses,General Grant Houses,GRANT,"West 125th Street, Morningside Avenue, West 123rd Street, and Broadway",NYCHA Development Data Book,https://data.cityofnewyork.us/Housing-Development/NYCHA-Development-Data-Book/evjd-dqpz,existing
+morningside_gardens,Morningside Gardens,Morningside Heights Housing Corporation,80 La Salle Street,NYC PLUTO,https://data.cityofnewyork.us/City-Government/Primary-Land-Use-Tax-Lot-Output-PLUTO-/64uk-42ks,existing

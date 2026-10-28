@@ -1,16 +1,16 @@
 # CB9 housing analysis
 
-Methods companion for the Manhattan Community Board 9 housing analysis. The policy document is [`report/cb9-housing-analysis.pdf`](report/cb9-housing-analysis.pdf). The site's tract, project, and 311 tables are built from the 2023 Census estimates, HPD building records, the borough president's recommendation for 1727 Amsterdam, and two 311 complaint types. The saturation formula is stated and is not scored. Geography draws Western Harlem in Manhattan from the 2020 tract boundaries.
+Methods companion for the Manhattan Community Board 9 housing analysis. The policy document is [`report/cb9-housing-analysis.pdf`](report/cb9-housing-analysis.pdf). The site's tract, project, and 311 tables are built from the 2023 Census estimates, including household income brackets, HPD building records, the NYCHA data book, PLUTO, the borough president's recommendation for 1727 Amsterdam, and two 311 complaint types. Mental-health and food sites come from the NYC Facilities Database. The saturation formula is stated. It is not scored, because that file does not contain supportive-housing unit counts. Geography draws Western Harlem in Manhattan from the 2020 tract boundaries.
 
 Prepared by Arnav Sahai.
 
 ## Read it in order
 
 1. Geography — Western Harlem in Manhattan, with tract boundaries and the 2023 estimates.
-2. Pipelines — census, housing production, services, and 311.
-3. Analysis — three-person AMI reference lines and the verified project register.
-4. Saturation index — the weighted formula, with no score.
-5. The report — the findings the source tables support, and the policy PDF.
+2. Sources — the datasets and how each one is retrieved.
+3. Analysis — tract incomes and household brackets against three-person AMI limits, and the project register.
+4. Saturation index — the weighted formula, the site counts, and how a score is read.
+5. Recommendations — the actions in the housing analysis report, and the PDF.
 
 ## Repository
 
@@ -18,8 +18,8 @@ Prepared by Arnav Sahai.
 | --- | --- |
 | `report/` | The housing analysis PDF |
 | `data/published/` | Tables transcribed from the PDF, with printed page numbers |
-| `data/retrieved/` | ACS, HPD, and 311 snapshots written by the pipeline scripts |
-| `data/sources/` | Cited AMI limits and the 1727 Amsterdam source record |
+| `data/retrieved/` | ACS, HPD, 311, facilities, NYCHA, and PLUTO snapshots written by the pipeline scripts |
+| `data/sources/` | Cited AMI limits, the 1727 Amsterdam record, and the existing-building register |
 | `data/resolved/` | Tract, project, and 311 tables written by the site build |
 | `src/cb9/` | Affordability gap, inventory sums, both saturation-index formulas, and the resolver |
 | `pipelines/` | Retrieval scripts and the manual source log |
@@ -42,12 +42,15 @@ Open `site/_site/index.html`.
 
 ```bash
 python3 pipelines/fetch_acs.py
+python3 pipelines/fetch_income_brackets.py
 python3 pipelines/fetch_hpd.py
 python3 pipelines/fetch_311.py
+python3 pipelines/fetch_facilities.py
+python3 pipelines/fetch_stock.py
 python3 scripts/build_site_data.py
 ```
 
-`CENSUS_API_KEY` is optional. With a key, the census script uses the Census API. Without one, it reads the Bureau's 2023 5-year summary files and keeps the MN09 rows. The 311 query is aggregated by complaint type for community board `09 MANHATTAN` in 2023 and 2024.
+`CENSUS_API_KEY` is optional. With a key, the census script uses the Census API for the median, poverty, rent, and population tables. Without one, it reads the Bureau's 2023 5-year summary files and keeps the MN09 rows. Household income brackets always come from summary-file table B19001. The 311 query is aggregated by complaint type for community board `09 MANHATTAN` in 2023 and 2024.
 
 ## Publish on GitHub Pages
 
@@ -55,4 +58,4 @@ python3 scripts/build_site_data.py
 
 ## Scope
 
-The PDF is the policy end product. This site does not revise it. The resolved unit total is the two HPD buildings only. 1727 Amsterdam is listed and left out of that sum. The saturation index stays unscored until a service-site list exists.
+The PDF is the policy end product. This site does not revise it. The production total is the two HPD buildings only. Grant Houses and Morningside Gardens are existing buildings and stay out of that sum. 1727 Amsterdam is listed and left out as well. The saturation index stays unscored until supportive-housing unit counts exist. The facility file supplies sites, and its capacity field is 0.

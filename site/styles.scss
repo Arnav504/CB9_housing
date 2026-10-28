@@ -46,8 +46,10 @@ nav.navbar {
 }
 
 table {
+  display: block;
   font-size: 0.92rem;
-  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 table th {
@@ -63,6 +65,8 @@ table td, table th {
 .quarto-figure img, img {
   background: white;
   border: 1px solid #e7e1d8;
+  height: auto;
+  max-width: 100%;
 }
 
 #title-block-header .quarto-title-meta {

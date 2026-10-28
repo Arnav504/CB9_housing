@@ -1,4 +1,4 @@
-Snapshots on disk: hpd on 2026-10-27; requests_311 on 2026-10-27; acs on 2026-10-27; geography on 2026-10-27.
+Snapshots on disk: hpd on 2026-10-27; requests_311 on 2026-10-27; acs on 2026-10-27; geography on 2026-10-27; facilities on 2026-10-27; acs_b19001 on 2026-10-27; stock on 2026-10-27.
 
 ### Census
 

@@ -7,7 +7,7 @@ project:
 
 website:
   title: "CB9 Housing Analysis"
-  description: "Methods companion for the Manhattan Community Board 9 housing analysis."
+  description: "Data sources, retrieval, analysis, and recommendations for the Manhattan Community Board 9 housing report."
   navbar:
     background: "#1b334f"
     foreground: "#f6f3ee"
@@ -18,13 +18,13 @@ website:
       - href: geography.qmd
         text: Geography
       - href: pipelines.qmd
-        text: Pipelines
+        text: Sources
       - href: analysis.qmd
         text: Analysis
       - href: saturation-index.qmd
         text: Saturation index
       - href: report.qmd
-        text: The report
+        text: Recommendations
   page-footer:
     left: "Prepared by Arnav Sahai."
     right: "[Download the PDF](files/cb9-housing-analysis.pdf)"

@@ -59,6 +59,77 @@ def tract_income_chart(tract_frame: pd.DataFrame, limits: pd.DataFrame) -> None:
     _save(fig, "tract_medians.svg")
 
 
+def household_brackets_chart(brackets: pd.DataFrame, deep_limit: int) -> None:
+    """District household counts. Brackets that end below the 30 percent line are marked."""
+    fig, ax = plt.subplots(figsize=(8.2, 7.2))
+    colors = []
+    for record in brackets.itertuples(index=False):
+        high = record.high
+        if high is not None and high < deep_limit:
+            colors.append(RUST)
+        elif record.low <= deep_limit and (high is None or deep_limit <= high):
+            colors.append(SAND)
+        else:
+            colors.append(NAVY)
+    labels = [label.replace(" to ", "–") for label in brackets["label"]]
+    ax.barh(labels, brackets["households"], color=colors, zorder=2)
+    ax.invert_yaxis()
+    ax.set_xlabel("Households in MN09, 2023 five-year estimates")
+    ax.legend(
+        handles=[
+            plt.Rectangle((0, 0), 1, 1, color=RUST, label=f"Ends below ${deep_limit:,.0f}"),
+            plt.Rectangle((0, 0), 1, 1, color=SAND, label=f"Contains ${deep_limit:,.0f}"),
+            plt.Rectangle((0, 0), 1, 1, color=NAVY, label="Higher brackets"),
+        ],
+        frameon=False,
+        loc="lower left",
+        bbox_to_anchor=(0, 1.02),
+        ncol=3,
+    )
+    _style(ax)
+    _save(fig, "household_brackets.svg")
+
+
+def service_site_chart(counts: pd.DataFrame) -> None:
+    """Mental-health and food sites per 1,000 residents. Supportive units are not drawn."""
+    import numpy as np
+
+    frame = counts.copy()
+    labels = frame["tract_label"].tolist()
+    y = np.arange(len(labels))
+    height = 0.38
+    fig, ax = plt.subplots(figsize=(8.2, 7.6))
+    ax.barh(y + height / 2, frame["mental_health_per_1000"], height=height, color=NAVY, label="Mental-health sites", zorder=2)
+    ax.barh(y - height / 2, frame["food_per_1000"], height=height, color=TEAL, label="Food sites", zorder=2)
+    ax.set_yticks(y, labels)
+    ax.invert_yaxis()
+    ax.set_xlabel("Sites per 1,000 residents")
+    ax.legend(frameon=False, loc="lower right")
+    _style(ax)
+    _save(fig, "service_sites.svg")
+
+
+def existing_buildings_chart(register: pd.DataFrame) -> None:
+    existing = register[register["kind"].eq("existing")].copy()
+    existing["total_units"] = existing["total_units"].astype(float)
+    fig, ax = plt.subplots(figsize=(7.2, 4.2))
+    bars = ax.barh(existing["display_name"], existing["total_units"], color=TEAL, zorder=2)
+    for bar in bars:
+        ax.text(
+            bar.get_width() + 30,
+            bar.get_y() + bar.get_height() / 2,
+            f"{bar.get_width():.0f}",
+            va="center",
+            color=INK,
+            fontsize=10,
+        )
+    ax.invert_yaxis()
+    ax.set_xlabel("Apartments or residential units")
+    ax.set_xlim(0, existing["total_units"].max() * 1.18)
+    _style(ax)
+    _save(fig, "existing_buildings.svg")
+
+
 def verified_projects_chart(register: pd.DataFrame) -> None:
     included = register[register["include_in_total"]].copy()
     included["total_units"] = included["total_units"].astype(float)

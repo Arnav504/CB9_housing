@@ -1,20 +1,26 @@
 ---
-title: "Methods companion"
+title: "CB9 housing analysis"
 ---
 
 <p class="kicker">Western Harlem, Manhattan</p>
 
-This site explains the housing analysis for Manhattan Community Board 9. The tract table, the income comparison, and the project register each come from one public source: the Census Bureau's 2023 five-year estimates, the 2025 income limits for a three-person household, HPD building records, and the borough president's recommendation for 1727 Amsterdam. The saturation index is defined here and is not given a score.
+This site walks through the housing analysis for Manhattan Community Board 9 and ends at the report. It shows where the data comes from, how each pipeline is retrieved, how the comparisons are made, and how the Service Saturation Index is calculated. The recommendations are the actions the report asks the board to take.
 
 Prepared by Arnav Sahai.
 
 ## Two questions
 
-The analysis asks two questions for the board.
+1. **Affordability.** When a project is marketed at a share of regional Area Median Income, what income does that require, and how does that compare with households in Western Harlem?
+2. **Distribution.** Where inside the district are supportive housing and safety-net services concentrated, relative to the rest of the district?
 
-1. **Affordability.** When a project is marketed at a share of regional Area Median Income, what income does that require, and how does that income compare with households in the district?
-2. **Distribution.** Where inside the district are supportive housing and safety-net services concentrated, relative to the district average?
+## How to read it
 
-The reading order follows that work. Geography places Western Harlem in Manhattan and lists the tracts. The pipelines page shows where each number comes from. The analysis page compares tract incomes with the income limits and adds up the verified projects. The saturation page states the formula. The report page gathers the findings.
+| Step | What it shows |
+| --- | --- |
+| [Geography](geography.qmd) | Western Harlem in Manhattan, the neighborhoods, and the census tracts |
+| [Sources](pipelines.qmd) | The datasets, and the steps that retrieve each one |
+| [Analysis](analysis.qmd) | Tract incomes, household brackets, and the housing count |
+| [Saturation index](saturation-index.qmd) | The formula, the site counts, and how a score is read |
+| [Recommendations](report.qmd) | What the report asks the board to do |
 
-[Start with the map](geography.qmd).
+[Start with the map](geography.qmd), or [open the report](files/cb9-housing-analysis.pdf).

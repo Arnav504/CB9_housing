@@ -12,8 +12,11 @@ sys.path.insert(0, str(ROOT / "src"))
 from cb9.geography_map import write_geography_map
 from cb9.figures import (
     ami_gap_chart,
+    existing_buildings_chart,
+    household_brackets_chart,
     inventory_chart,
     service_rates_chart,
+    service_site_chart,
     ssi_components_chart,
     tract_income_chart,
     verified_projects_chart,
@@ -36,13 +39,15 @@ from cb9.narrative import (
     ssi_worked_example_md,
     tract_guide_md,
 )
+from cb9.income_brackets import district_brackets
 from cb9.paths import GENERATED, REPORT_PDF, RESOLVED, RETRIEVED, SITE_FILES
 from cb9.resolve import ami_limits, assert_consistent, projects as resolved_projects
 from cb9.resolve import requests as resolved_requests
 from cb9.resolve import tract_crosswalk, tracts as resolved_tracts
-from cb9.resolved_pages import ami_md, crosswalk_md, projects_md as resolved_projects_md
+from cb9.resolved_pages import ami_md, crosswalk_md, income_md, projects_md as resolved_projects_md
 from cb9.resolved_pages import requests_md as resolved_requests_md
-from cb9.resolved_pages import tracts_md
+from cb9.resolved_pages import services_md, tracts_md
+from cb9.services import tract_site_counts
 
 
 def _write(name: str, text: str) -> None:
@@ -87,10 +92,17 @@ def main() -> None:
     _write("resolved_projects.md", resolved_projects_md())
     _write("resolved_requests.md", resolved_requests_md())
     _write("resolved_ami.md", ami_md())
+    _write("resolved_income.md", income_md())
+    _write("resolved_services.md", services_md())
 
     write_geography_map(RETRIEVED / "geo")
-    tract_income_chart(resolved_tracts(), ami_limits())
+    limits = ami_limits()
+    tract_income_chart(resolved_tracts(), limits)
+    deep_limit = int(limits.loc[limits["ami_pct"].eq(30), "income_limit"].iloc[0])
+    household_brackets_chart(district_brackets(), deep_limit)
     verified_projects_chart(resolved_projects())
+    existing_buildings_chart(resolved_projects())
+    service_site_chart(tract_site_counts(resolved_tracts()))
     ami_gap_chart(values["cb9_median_gap"], values["ami_100_hh3"])
     service_rates_chart(matrix)
     inventory_chart(

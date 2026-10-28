@@ -12,7 +12,10 @@ from cb9.affordability import affordability_gap, income_ratio, share_of_threshol
 from cb9.inventory import summarize_projects
 from cb9.load import aggregates, benchmarks, projects, service_matrix
 from cb9.match import acs_tract_label, hpd_tract_label
-from cb9.resolve import assert_consistent, project_totals, requests, tract_crosswalk, tracts
+from cb9.income_brackets import bracket_span
+from cb9.resolve import assert_consistent, project_totals, projects as resolved_projects, requests, tract_crosswalk, tracts
+from cb9.resolved_pages import income_md, services_md
+from cb9.services import address_key
 from cb9.ssi import appendix_ssi, main_ssi
 
 
@@ -93,16 +96,44 @@ class FormulaTests(unittest.TestCase):
         unresolved = tract_crosswalk()[tract_crosswalk()["census_2020_id"].eq("")]
         self.assertIn("221", set(unresolved["report_id"]))
         self.assertIn("222", set(unresolved["report_id"]))
+        register = resolved_projects()
+        self.assertEqual(int(register.loc[register["project_id"].eq("grant_houses"), "total_units"].iloc[0]), 1940)
+        self.assertEqual(int(register.loc[register["project_id"].eq("morningside_gardens"), "total_units"].iloc[0]), 982)
+        self.assertFalse(bool(register.loc[register["project_id"].eq("grant_houses"), "include_in_total"].iloc[0]))
+
+    def test_bracket_limits_are_not_split(self) -> None:
+        below, containing = bracket_span(43750)
+        self.assertEqual(below[-1], "B19001_E008")
+        self.assertEqual(containing, "B19001_E009")
+        below, containing = bracket_span(145800)
+        self.assertEqual(below[-1], "B19001_E014")
+        self.assertEqual(containing, "B19001_E015")
+        text = income_md()
+        self.assertIn("Neither figure is the share of residents who qualify", text)
+        self.assertNotIn("percent of residents", text.lower())
+
+    def test_facility_addresses_collapse_to_one_site(self) -> None:
+        self.assertEqual(address_key("1090 AMSTERDAM 15TH FLOOR"), "1090 AMSTERDAM")
+        self.assertEqual(address_key("1090 AMSTERDAM AVE AVE"), "1090 AMSTERDAM")
+        self.assertEqual(address_key("1090 AMSTERDAM AVENUE"), "1090 AMSTERDAM")
+        self.assertEqual(address_key("646 ST NICHOLAS AVENUE"), "646 ST NICHOLAS")
+        text = services_md()
+        self.assertIn("are not turned into units", text)
+        self.assertIn("| — |", text)
 
     def test_public_pages_do_not_cite_pdf_locations(self) -> None:
         site = Path(__file__).resolve().parents[1] / "site"
-        banned = ("printed page", "Figure 1", "reproducibility.qmd", "p. ")
+        import re
+
+        banned = ("printed page", "Figure 1", "reproducibility.qmd")
         for path in site.glob("*.qmd"):
             if path.name == "reproducibility.qmd":
                 continue
             text = path.read_text()
             for phrase in banned:
                 self.assertNotIn(phrase, text, f"{path.name} contains {phrase}")
+            self.assertIsNone(re.search(r"\bp\. \d", text), f"{path.name} cites a PDF page")
+            self.assertNotIn("does not yet hold", text)
 
 
 if __name__ == "__main__":

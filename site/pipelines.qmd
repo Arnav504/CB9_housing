@@ -1,45 +1,50 @@
 ---
-title: "Pipelines"
+title: "Sources"
 ---
 
-Four sources feed the analysis. Each one is joined to the others on census tract.
+Four pipelines feed the analysis. Each one is retrieved from a public source, saved locally, and joined to the others on census tract. The diagram is the path from those sources to the report.
 
 ```{mermaid}
 flowchart LR
-  acs[ACS income and population] --> profiles[Tract profiles]
-  housing[Housing inventory] --> projects[Project rows]
+  acs[Census income and population] --> profiles[Tract profiles]
+  housing[Housing production] --> projects[Project rows]
   services[Services and supportive housing] --> rates[Rates per 1,000]
   calls[311 requests] --> need[Request counts]
   profiles --> ami[Affordability comparison]
   projects --> ami
   rates --> ssi[Saturation index]
   need --> ssi
+  ami --> report[Housing analysis report]
+  ssi --> report
 ```
 
-## Census income and population
+## Data sources
 
-The tract file is the Census Bureau's 2023 American Community Survey 5-year tables, limited to the tracts New York City Planning assigns to community-district tabulation area MN09. With `CENSUS_API_KEY` set, the script uses the Census API. Without a key, it reads the Bureau's 2023 5-year summary files and keeps those same tables.
-
-| Variable | Table | Universe |
+| Source | What it supplies | Where it lives |
 | --- | --- | --- |
-| Median household income, and its margin of error | B19013 | Households |
-| Poverty count and poverty universe | B17001 | Population for whom poverty status is determined |
-| Median gross rent, and its margin of error | B25064 | Renter-occupied units paying cash rent |
-| Total population, and its margin of error | B01003 | Total population |
+| American Community Survey, 2023 five-year | Median income, poverty, rent, population, and household income brackets for each MN09 tract | Census Bureau summary files, or the Census API when a key is set |
+| NYC Planning tract file | Which 2020 tracts belong to Manhattan Community District 9, and their neighborhood names | NYC Planning boundaries |
+| NYCHA income limits, 2025 | Income limits for a three-person household at 30, 50, 60, 80, and 100 percent of AMI | NYCHA rent and income table |
+| HPD Affordable Housing Production by Building | Building-level unit counts for community board MN-09 | NYC Open Data `hg8x-zxpr` |
+| NYCHA Development Data Book | Apartment count for General Grant Houses | NYC Open Data `evjd-dqpz`, data as of January 1, 2025 |
+| NYC PLUTO | Residential units and community district for Morningside Gardens and the examined ANCP addresses | NYC Open Data `64uk-42ks` |
+| Manhattan Borough President recommendation | Status and approximate size of 1727 Amsterdam Avenue | Borough president recommendation, December 10, 2025 |
+| 311 service requests | Complaint counts for Manhattan Community Board 9 in 2023 and 2024 | NYC Open Data `erm2-nwe9` |
+| NYC Facilities Database | Mental-health sites, food pantries, soup kitchens, and supportive-housing sites in community district 109 | NYC Open Data `ji82-xba5`. Capacity is 0, so supportive-housing units are not taken from this file |
 
-Vintage and universe are stored on every row. The snapshot stays in `data/retrieved/`.
+Census Reporter, Data Commons, the Furman Center neighborhood profile, the NYC Housing Conference tracker, and the Department of City Planning community profile are the context sources named alongside these files. URLs are listed in `pipelines/source_log.csv`.
 
-## Housing production
+## How the data is retrieved
 
-HPD's Affordable Housing Production by Building dataset (`hg8x-zxpr`) is the building file for community board MN-09. A project enters the unit total only when that file has the building. HPD's counted units are the agency's affordable-unit field. They are not reclassified into AMI bands. 1727 Amsterdam is recorded from the borough president's recommendation and is kept out of the sum, because the unit count there is approximate.
+The site itself does not download anything when it renders. Retrieval is a separate step. Each script writes a snapshot under `data/retrieved/`, and the pages are built from those files.
 
-## Services and supportive housing
+**Census.** The tract list is City Planning's community-district tabulation area MN09. For those tracts the script reads 2023 five-year tables: median household income (B19013), poverty (B17001), median gross rent (B25064), population (B01003), and household income brackets (B19001). With `CENSUS_API_KEY` set, the median, poverty, rent, and population tables can come from the Census API. The bracket table is read from the Bureau's summary file. A blank median is kept as suppressed. Tract 217.03 is the case in this district. The bracket table counts households. It does not say how many people qualify for a unit.
 
-The saturation index uses three rates per 1,000 residents: mental-health and behavioral-health sites, permanent supportive housing units, and food pantries. The formula is on the saturation page. There is no public site list for those facilities in this repository, so the index is not scored.
+**Housing.** The HPD script asks NYC Open Data for every building row whose community board is MN-09. Counted units are HPD's own affordable-unit field. A project is included in the production total only when that file contains the building. 1727 Amsterdam is not in the HPD file. It is recorded from the borough president's recommendation and kept out of the sum, because that document describes the size as approximate. General Grant Houses is read from the NYCHA Development Data Book. Morningside Gardens is read from PLUTO. Both are existing buildings, so their counts stay out of the HPD production total. The ANCP Morningside addresses that PLUTO can find are in community district 110, so that cluster is not added either.
 
-## 311 requests
+**311.** Two queries, one for 2023 and one for 2024, count requests in community board `09 MANHATTAN` by complaint type. The count is done on the open-data server. The citywide file is not downloaded. The table below keeps the two types whose names match the request the report is tracking for homelessness: Homeless Person Assistance and Encampment.
 
-The extract asks NYC Open Data (`erm2-nwe9`) for complaint-type counts in community board `09 MANHATTAN` during calendar years 2023 and 2024. The aggregation runs on the open-data server. The table keeps two types the complaint-type field actually uses: Homeless Person Assistance and Encampment. Bus-stop shelter complaints are left out. The counts are community-board totals, not a tract split.
+**Services.** The facilities script asks NYC Open Data for community district 109 rows whose facility type names mental health, food, feeding, or housing support. Addresses that refer to the same building are combined. Food pantries and soup kitchens become food sites. Mental-health program rows become mental-health sites. Supportive-housing program rows are kept as sites. The capacity field on those rows is 0, so it is not used as a unit count, and the saturation index is not scored from this file.
 
 {{< include _generated/resolved_requests.md >}}
 
@@ -47,7 +52,7 @@ The extract asks NYC Open Data (`erm2-nwe9`) for complaint-type counts in commun
 
 | Pipeline | What the analysis uses |
 | --- | --- |
-| Census income | 2023 five-year medians, poverty, rent, and population for the 20 MN09 tracts |
-| Housing inventory | Two HPD buildings in the unit total, and 1727 Amsterdam listed separately |
-| Services | The weighted saturation formula, with no score |
+| Census income | 2023 five-year medians, poverty, rent, population, and household income brackets for the 20 MN09 tracts |
+| Housing inventory | Two HPD buildings in the production total, Grant Houses and Morningside Gardens as existing buildings, and 1727 Amsterdam listed separately |
+| Services | Mental-health and food sites per 1,000 residents. Supportive-housing units are still missing, so the index is not scored |
 | 311 counts | Homeless Person Assistance and Encampment, by year |

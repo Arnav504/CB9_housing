@@ -4,8 +4,10 @@ from __future__ import annotations
 
 import pandas as pd
 
+from cb9.income_brackets import assert_brackets
 from cb9.match import hpd_tract_label
 from cb9.paths import RETRIEVED, SOURCES
+from cb9.services import assert_services
 
 # Identifiers printed in the PDF. A blank census id means this repository does
 # not assign that printed label to a 2020 tract.
@@ -57,12 +59,16 @@ HPD_BUILDINGS: list[dict[str, str]] = [
 ]
 
 OMITTED_FROM_PDF: list[tuple[str, str]] = [
-    ("General Grant Houses renovation", "No HPD row matched this name."),
-    ("Morningside Gardens renovation", "No HPD row matched this name."),
-    ("ANCP Morningside", "No HPD row matched this name."),
-    ("Columbia Manhattanville, 125 Amsterdam Avenue", "This project is not the Manhattanville phase rows at 3595 Broadway."),
-    ("2975 Broadway", "No HPD row matched this address."),
-    ("Harlem Commons", "No HPD row matched this name."),
+    (
+        "ANCP Morningside",
+        "Habitat for Humanity NYC and Westchester describes 35 residential units now and 36 after rehabilitation, at Manhattan Avenue, West 115th Street, and West 116th Street. PLUTO places 494 Manhattan Avenue (9 residential units) and 357 West 115 Street (18 residential units) in community district 110, not MN09. 321 West 116 Street has no PLUTO row under that address. HPD's Morningside Cluster row at 494 Manhattan Avenue is community board MN-10. The cluster is not added to the MN09 total.",
+    ),
+    (
+        "Columbia Manhattanville, 125 Amsterdam Avenue",
+        "No HPD row matches this address. It is not the Manhattanville phase rows at 3595 Broadway, and no unit count is recorded here.",
+    ),
+    ("2975 Broadway", "No HPD row matches this address, so no unit count is recorded here."),
+    ("Harlem Commons", "No HPD row matches this name, so no unit count is recorded here."),
 ]
 
 REQUEST_TYPES = ("Homeless Person Assistance", "Encampment")
@@ -113,6 +119,7 @@ def projects() -> pd.DataFrame:
     rows = [_hpd_row(hpd, rule) for rule in HPD_BUILDINGS]
     external = pd.read_csv(SOURCES / "external_projects.csv", dtype=str)
     rows.extend(external.to_dict(orient="records"))
+    rows.extend(_stock_rows())
     frame = pd.DataFrame(rows)
     frame["include_in_total"] = frame["include_in_total"].map(_as_bool)
     frame["total_is_approximate"] = frame["total_is_approximate"].map(_as_bool)
@@ -167,6 +174,9 @@ def assert_consistent() -> None:
     cross = tract_crosswalk()
     if cross["report_id"].duplicated().any():
         raise AssertionError("Duplicate report tract ids")
+    _assert_stock(register)
+    assert_brackets()
+    assert_services(tract_frame)
 
 
 def _hpd_row(hpd: pd.DataFrame, rule: dict[str, str]) -> dict[str, str]:
@@ -198,8 +208,90 @@ def _hpd_row(hpd: pd.DataFrame, rule: dict[str, str]) -> dict[str, str]:
         "source": "HPD Affordable Housing Production by Building",
         "source_url": "https://data.cityofnewyork.us/Housing-Development/Affordable-Housing-Production-by-Building/hg8x-zxpr",
         "include_in_total": "true",
+        "kind": "production",
         "notes": f"HPD counted units are the agency affordable-unit field. Construction type: {hit['reporting_construction_type']}.",
     }
+
+
+def _stock_rows() -> list[dict[str, str]]:
+    spec = pd.read_csv(SOURCES / "stock_buildings.csv", dtype=str)
+    grant = pd.read_csv(RETRIEVED / "nycha_grant.csv", dtype=str)
+    pluto = pd.read_csv(RETRIEVED / "pluto_examined.csv", dtype=str)
+    if len(grant) != 1:
+        raise ValueError("Expected one NYCHA GRANT row")
+    grant_row = grant.iloc[0]
+    morningside = pluto[pluto["address"].eq("80 LA SALLE STREET")]
+    if len(morningside) != 1:
+        raise ValueError("Expected one PLUTO row for 80 La Salle Street")
+    lot = morningside.iloc[0]
+    total = _plain_int(grant_row["total_number_of_apartments"])
+    current = _plain_int(grant_row["number_of_current_apartments"])
+    units = _plain_int(lot["unitsres"])
+    details = {
+        "grant_houses": {
+            "bbl": "",
+            "status": "Existing",
+            "record_date": _mdy(grant_row["data_as_of"]),
+            "total_units": str(total),
+            "notes": (
+                f"Existing public housing. The NYCHA data book, as of {grant_row['data_as_of']}, "
+                f"lists {total:,} total apartments and {current:,} current apartments "
+                f"in Manhattan community district {grant_row['community_distirct']}. "
+                f"HUD AMP {grant_row['hud_amp_']}. Completed {str(grant_row['completion_date']).split('T')[0]}. "
+                "Not an HPD production project, so these apartments are not in the production total. "
+                "The data book does not use HPD's counted-units field, so the affordable count is blank."
+            ),
+        },
+        "morningside_gardens": {
+            "bbl": _bbl(lot["bbl"]),
+            "status": "Existing",
+            "record_date": str(lot["yearbuilt"]),
+            "total_units": str(units),
+            "notes": (
+                f"PLUTO lists {units:,} residential units at this tax lot in community district {lot['cd']}. "
+                "The cooperative's history page says the six buildings were home to 980 families by 1958. "
+                "The register uses the PLUTO residential-unit count. "
+                "Existing cooperative housing, not an HPD production project, so these units are not in the production total. "
+                "No affordable-unit count is recorded here."
+            ),
+        },
+    }
+    rows = []
+    for record in spec.to_dict(orient="records"):
+        extra = details.get(record["project_id"])
+        if extra is None:
+            raise ValueError(f"No snapshot for {record['project_id']}")
+        rows.append(
+            {
+                **record,
+                **extra,
+                "total_is_approximate": "false",
+                "affordable_units": "",
+                "tract_label": "",
+                "include_in_total": "false",
+            }
+        )
+    return rows
+
+
+def _assert_stock(register: pd.DataFrame) -> None:
+    grant = register[register["project_id"].eq("grant_houses")]
+    gardens = register[register["project_id"].eq("morningside_gardens")]
+    if len(grant) != 1 or len(gardens) != 1:
+        raise AssertionError("Grant Houses and Morningside Gardens must both be on the register")
+    if int(grant.iloc[0]["total_units"]) != 1940 or bool(grant.iloc[0]["include_in_total"]):
+        raise AssertionError("Grant Houses must stay at 1,940 apartments and outside the production total")
+    if int(gardens.iloc[0]["total_units"]) != 982 or bool(gardens.iloc[0]["include_in_total"]):
+        raise AssertionError("Morningside Gardens must stay at 982 residential units and outside the production total")
+    if set(register["kind"]) != {"production", "proposal", "existing"}:
+        raise AssertionError(f"Unexpected project kinds: {set(register['kind'])}")
+    pluto = pd.read_csv(RETRIEVED / "pluto_examined.csv", dtype=str)
+    outside = pluto[pluto["address"].isin(["494 MANHATTAN AVENUE", "357 WEST 115 STREET"])]
+    if set(outside["cd"]) != {"110"}:
+        raise AssertionError("The examined ANCP buildings should be community district 110")
+    names = set(omitted_projects()["printed_project"])
+    if "ANCP Morningside" not in names or "General Grant Houses renovation" in names:
+        raise AssertionError("The omitted-project list is out of date")
 
 
 def _as_bool(value: object) -> bool:
@@ -212,3 +304,19 @@ def _tract_sort(value: str) -> tuple[int, int]:
         base, suffix = text.split(".", 1)
         return int(base), int(suffix)
     return int(text), 0
+
+
+def _plain_int(value: object) -> int:
+    return int(str(value).replace(",", "").split(".", 1)[0])
+
+
+def _bbl(value: object) -> str:
+    text = str(value).strip()
+    if "." in text:
+        return text.split(".", 1)[0]
+    return text
+
+
+def _mdy(value: object) -> str:
+    month, day, year = str(value).split("/")
+    return f"{int(year):04d}-{int(month):02d}-{int(day):02d}"

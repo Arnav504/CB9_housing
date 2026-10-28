@@ -29,5 +29,30 @@
     "mn09_tracts": 20,
     "community_districts": 13,
     "source": "https://services5.arcgis.com/GfwWNkhOj9bNBqoJ/arcgis/rest/services"
+  },
+  "facilities": {
+    "retrieved_on": "2026-10-27",
+    "rows": 67,
+    "dataset": "ji82-xba5",
+    "community_district": "109",
+    "filter": "mental health, food, feeding, and housing-support facility types"
+  },
+  "acs_b19001": {
+    "retrieved_on": "2026-10-27",
+    "rows": 20,
+    "vintage": "2023 5-year",
+    "table": "B19001",
+    "universe": "Households",
+    "geography": "Manhattan CDTA MN09",
+    "file": "acsdt5y2023-b19001.dat",
+    "blank_household_count": []
+  },
+  "stock": {
+    "retrieved_on": "2026-10-27",
+    "nycha_rows": 1,
+    "pluto_rows": 3,
+    "nycha_dataset": "evjd-dqpz",
+    "pluto_dataset": "64uk-42ks",
+    "pluto_address_without_a_row": "321 WEST 116 STREET"
   }
 }
