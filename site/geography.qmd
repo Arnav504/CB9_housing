@@ -1,0 +1,19 @@
+---
+title: "Geography"
+---
+
+The district is Manhattan Community Board 9: Morningside Heights, Manhattanville, and Hamilton Heights. The table below is the 2020 census tract list that City Planning assigns to community-district tabulation area MN09, with the Census Bureau's 2023 five-year estimates.
+
+Figure 1 in the PDF is the boundary map. Its geometry was not independently checked, so this site does not redraw it.
+
+Tract 217.03 has a population of 211 and a suppressed median household income. That cell stays blank. The other nineteen medians are the estimates as published, with the margin of error the Bureau publishes beside them.
+
+{{< include _generated/resolved_tracts.md >}}
+
+## Printed identifiers
+
+The PDF uses some tract numbers that are not on this 2020 list, including 209, 213.01, 217.01, 221, 221.01, 222, 223, 227.01, and 231.01. Those identifiers stay in the crosswalk with an empty 2020 id. This site does not guess which current tract each one became.
+
+{{< include _generated/tract_crosswalk.md >}}
+
+The printed tract guide, including its incomes, is kept as a transcription on the [reproducibility](reproducibility.qmd) page. Where a printed id matches a row above, the guide's median matches this 2023 estimate. Later chapters of the PDF print other incomes for some of the same numbers. Those pairs are listed there and are not used in the table above.

@@ -1,0 +1,71 @@
+---
+title: "Reproducibility"
+---
+
+The tables on the geography, analysis, and saturation pages are the resolved figures: one 2023 tract file, one project register, and the saturation formula with no score. This page keeps the PDF's own figures beside those, in three columns.
+
+- **Published** means the number printed in the housing analysis PDF.
+- **Recomputed** means the result of applying the report's own formula or sum to the report's own printed inputs.
+- **Retrieved** means a value returned by a public dataset, saved under `data/retrieved/` and labeled with its vintage.
+
+A recomputed value that differs from the printed value is left as a difference. It is not written back into the PDF. The PDF remains the policy document.
+
+## Saturation index
+
+The main formula and the appendix formula are both applied to the printed per-1,000 matrix. The CB9 average row in that matrix is the denominator: 4.4, 9.7, and 1.0. Neither formula returns the printed index.
+
+{{< include _generated/ssi_comparison.md >}}
+
+The band in the table is the threshold table applied to the main-formula result. The printed policy call is the one attached to the printed index. For Tract 219 the printed index is 137, which the threshold table calls approaching saturation, and the printed call is to oppose new supportive housing. The main formula returns 179.25, which falls in the table's over-saturated band.
+
+The formula section also says a score above 100 is over-saturation. The threshold table calls 100–120 balanced. Tract 219's printed 137 is inside the 120–150 band either way. The other three printed scores are below 100.
+
+The raw site counts behind the per-1,000 rates are not in the report, so the rates cannot be rebuilt from a facility list. Until they can, the printed scores stay the report's policy inputs.
+
+## Affordability and inventory
+
+The dollar gap reproduces: $145,800 minus $64,698 is $81,102, and that difference is 125.4 percent of $64,698 when rounded to one decimal place. The five-project row sums reproduce the printed 804 total and 500 affordable units.
+
+The nine printed rows sum to 1,713 total units and 1,178 affordable units. The published pipeline headline is 1,226 and 749. Inside the headline, deep plus workforce equals the affordable total, and affordable plus market equals 1,226. The printed count of 591 units at 60 percent of AMI or above does not equal workforce plus market.
+
+{{< include _generated/inventory_checks.md >}}
+
+PS 186 is printed as completed in 2016 in the five-project table and as proposed in the nine-row table. Sunrose is printed as luxury-oriented in the five-project verdict and as supported in the nine-row board position. Both wordings are transcribed on the analysis page.
+
+## Income figures that disagree
+
+These pairs are both printed. The page numbers are the printed page labels in the PDF.
+
+{{< include _generated/income_conflicts.md >}}
+
+The guide also labels Tract 222 as Census Tract 221. The neighborhood profiles use Tract 221 and Tract 221.01. City Planning's 2020 tract list for MN09, retrieved with the census pipeline, is the place to see which of these IDs are current tract codes.
+
+Access percentages are not recomputed. The microdata are not in the report, and several printed columns rise as the AMI limit rises, which conflicts with the column's own definition of a share at or above a threshold.
+
+## District rates
+
+{{< include _generated/rate_checks.md >}}
+
+The service matrix prints a CB9 average of 9.7 supportive units per 1,000 residents. The district table prints 18.62 for CB9. Tract 219's own rate in the matrix is 18.6. The saturation index uses the matrix average, 9.7, as its denominator. The 3.5-times citywide claim uses 18.62 and 5.34.
+
+## Retrieved snapshots
+
+{{< include _generated/retrieval.md >}}
+
+Refresh the snapshots with `python pipelines/fetch_acs.py`, `python pipelines/fetch_hpd.py`, and `python pipelines/fetch_311.py`, then rerun `python scripts/build_site_data.py`. The site render itself does not call the network. Source URLs and the manual citations are in `pipelines/source_log.csv`.
+
+The 311 footnote in the report says the district table covers four census tracts. The tract guide lists more than four. The four printed mental-health counts (94, 54, 59, and 40) sum to 247, which is the printed 2024 district total for that category.
+
+## Fair Share audit
+
+The report describes BTP as "Below the Poverty Line" and attributes a set of siting statistics to the NYC Comptroller's Fair Share audit. In audit MD22-101A, BTP means beds-to-population. The audit's scope is fiscal years 2018 through 2022. It reports that 74 percent of 230 sitings were not independently reviewed (170 under Article 9, and 60 under ULURP or Section 195), that 40 percent of those 170 Article 9 sitings were in high-BTP districts, and that a sample of 28 detailed statements included 18 sitings in high-BTP districts, with Manhattan Community District 9 among the districts discussed. The audit does not establish, in the form the report states them, a 73 percent below-median-income placement, a 38 percent 197-a bypass, six CB9 instances, a 94-to-1 wealth disparity, or a top-five poverty-facility rank.
+
+Source: NYC Comptroller, *Audit Report on New York City's Compliance with Fair Share*, MD22-101A, November 9, 2023. [comptroller.nyc.gov](https://comptroller.nyc.gov/reports/audit-report-on-new-york-citys-compliance-with-fair-share/).
+
+## What a later revision of the PDF would still need
+
+The tract table, the HPD project register, the 311 type filter, and the Fair Share wording are now generated from the sources named on the other pages. A revision of the PDF would still need three things this repository does not have.
+
+- A service-site list with a count and a population for each tract, so the saturation formula can be scored. The printed scores 137, 42, 58, and 35 stay on this page until that list exists.
+- A household-size income distribution before a "percent of residents with access" cell is treated as measured eligibility. A three-person AMI limit and an all-household median describe different groups.
+- A source row for each printed project that HPD does not list: General Grant Houses, Morningside Gardens, ANCP, the Columbia Manhattanville project at 125 Amsterdam Avenue, 2975 Broadway, and Harlem Commons. Those rows stay out of the unit total.

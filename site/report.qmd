@@ -1,0 +1,23 @@
+---
+title: "The report"
+---
+
+The policy document is the housing analysis PDF. [Download it](files/cb9-housing-analysis.pdf). This site does not replace those pages, and it does not revise them.
+
+The PDF states three findings, a tiered review framework in Part 4, and a recommendation list in Part 6. Part 4 presents the framework as a negotiation baseline for community-benefit discussions.
+
+The findings in the PDF use incomes, a 1,226-unit pipeline, and saturation scores that the source tables on this site do not reproduce. Those printed figures stay in the PDF. The tables a revision would use are the [tract estimates](geography.qmd), the [project register](analysis.qmd), and the saturation formula, which is written out and left without a score.
+
+## What the PDF states, and where the source tables differ
+
+**Income differs by neighborhood.** The PDF's first finding uses a Tract 219 median of $17,584 and a Hamilton Heights median of $62,100. The 2023 five-year estimate for tract 219, which is a current MN09 tract, is $20,912. The PDF also prints a CB9 median of $45,700 and another of $64,698. This site does not publish a district median, because a median of tract medians is not the district median.
+
+**The pipeline's deep-affordability share.** The PDF says 439 units, 36 percent of a 1,226-unit pipeline, are at or below 60 percent of AMI. The HPD buildings in the resolved register sum to 317 total units and 151 counted affordable units. HPD's income categories are not the PDF's AMI bands, so this site does not convert 151 into a deep-affordability share. The 1,226 figure is not a sum of the register.
+
+**Service density is uneven.** The PDF uses a saturation index of 137 for Tract 219 and 42 for Tract 221. This site states the weighted formula and does not assign those scores. The comparison of the formula with the printed scores is in the [reproducibility](reproducibility.qmd) appendix.
+
+## Fair Share
+
+The PDF discusses the NYC Comptroller's Fair Share audit. In that audit, MD22-101A, BTP means beds-to-population. The audit covers fiscal years 2018 through 2022. It reports that 74 percent of 230 sitings were not independently reviewed, and that 40 percent of the 170 Article 9 sitings in that set were in high-BTP districts. Manhattan Community District 9 is among the districts discussed. The appendix records the audit's figures next to the wording in the PDF.
+
+[Open the housing analysis PDF](files/cb9-housing-analysis.pdf).

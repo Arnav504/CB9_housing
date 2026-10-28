@@ -1,0 +1,42 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "CB9 Housing Analysis"
+  description: "Methods companion for the Manhattan Community Board 9 housing analysis."
+  navbar:
+    background: "#1b334f"
+    foreground: "#f6f3ee"
+    search: true
+    left:
+      - href: index.qmd
+        text: Home
+      - href: geography.qmd
+        text: Geography
+      - href: pipelines.qmd
+        text: Pipelines
+      - href: analysis.qmd
+        text: Analysis
+      - href: saturation-index.qmd
+        text: Saturation index
+      - href: report.qmd
+        text: The report
+      - href: reproducibility.qmd
+        text: Reproducibility
+  page-footer:
+    left: "Prepared by Arnav Sahai. Cameron Clarke edited the policy report."
+    right: "[Download the PDF](files/cb9-housing-analysis.pdf)"
+
+format:
+  html:
+    theme: styles.scss
+    toc: true
+    toc-depth: 2
+    mainfont: "Source Sans 3"
+    linestretch: 1.45
+    include-in-header:
+      text: |
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">

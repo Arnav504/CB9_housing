@@ -1,0 +1,13 @@
+pair_id,statement_a,statement_b,issue
+cb9_median,guide_cb9_45700,gap_cb9_64698,Two CB9 medians are printed for the same district.
+tract_219_income,guide_219_20912,body_219_17584,The guide and the narrative use different medians for Tract 219.
+tract_219_poverty,guide_219_pov_43_8,body_219_pov_62,The guide and the narrative use different poverty rates for Tract 219.
+tract_209_guide_body,guide_209_28015,body_209_22183,The guide and the Morningside profile disagree on Tract 209.01.
+tract_209_later,body_209_22183,later_209_56580,Later chapters assign Tract 209.01 the Morningside Heights neighborhood median.
+tract_211,guide_211_79522,body_211_49431,The guide and the Morningside profile disagree on Tract 211.
+tract_225,guide_225_58015,body_225_35566,Tract 225 has two medians and is placed in two neighborhoods.
+tract_229,guide_229_59145,body_229_24806,Tract 229 has two medians and is placed in two neighborhoods.
+tract_233,guide_233_83232,body_233_51656,The guide and the Hamilton Heights profile disagree on Tract 233.
+highest_income,guide_205_highest,body_231_highest,The guide names Tract 205 as the highest-income tract. The profile names Tract 231.01.
+tract_231_id,guide_231_67175,body_231_highest,The guide uses Tract 231. The profile uses Tract 231.01 and a different median.
+morningside_poorest,summary_morningside_poorest,body_209_as_poorest_pocket,"The summary's poorest Morningside tract median matches the neighborhood median, while the tract profile prints a lower figure for Tract 209.01."

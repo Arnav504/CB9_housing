@@ -1,0 +1,63 @@
+---
+title: "Pipelines"
+---
+
+The report's source note, printed page 46, names four families of data. Each family is joined to the others on census tract. The diagram is the path from those sources to the PDF.
+
+```{mermaid}
+flowchart LR
+  acs[ACS income and population] --> profiles[Tract profiles]
+  housing[Housing inventory] --> projects[Project rows]
+  services[Services and supportive housing] --> rates[Rates per 1,000]
+  calls[311 requests] --> need[Request counts]
+  profiles --> ami[Affordability comparison]
+  projects --> ami
+  rates --> ssi[Saturation index]
+  need --> ssi
+  ami --> pdf[Housing analysis PDF]
+  ssi --> pdf
+```
+
+## Census income and population
+
+Census Reporter, Data Commons, and the Furman Center neighborhood profile are the citations in the report. The scripted extract is the Census Bureau's 2023 American Community Survey 5-year tables, limited to the tracts New York City Planning assigns to community-district tabulation area MN09. With `CENSUS_API_KEY` set, the script uses the Census API. Without a key, it reads the Bureau's 2023 5-year summary files and keeps those same tables.
+
+| Variable | Table | Universe |
+| --- | --- | --- |
+| Median household income, and its margin of error | B19013 | Households |
+| Poverty count and poverty universe | B17001 | Population for whom poverty status is determined |
+| Median gross rent, and its margin of error | B25064 | Renter-occupied units paying cash rent |
+| Total population, and its margin of error | B01003 | Total population |
+
+Vintage and universe are stored on every retrieved row. The guide's incomes stay in `data/published/tract_guide.csv`. The snapshot stays in `data/retrieved/`. Where a tract ID lines up, both medians appear on the reproducibility page.
+
+## Housing production
+
+The report builds a 2014–2026 project inventory and classifies units by AMI band and by supportive status, then sets that inventory next to tract incomes. Two printed tables are transcribed: a five-project production table and a nine-row inventory that adds two completed renovations and two further pipeline projects.
+
+HPD's Affordable Housing Production by Building dataset (`hg8x-zxpr`) is downloaded for community board MN-09. A short list of address and name rules flags building rows that correspond to the printed projects. HPD's counted units are the agency's affordable-unit field. They are shown beside the printed counts. The NYC Housing Conference tracker and the Department of City Planning Manhattan 9 profile remain citations, with the URLs in `pipelines/source_log.csv`.
+
+## Services and supportive housing
+
+The saturation index is built from a printed matrix of four tracts: mental-health sites, permanent supportive units, and food pantries, each per 1,000 residents, plus a CB9 average row. That matrix is the analysis input.
+
+The Mayor's Office community mental health dashboard, NYC Well, and the Health Department community profiles are the report's citations for locations and capacity. There is no stable public extract for the geocoded site list or for the community-organization outreach, so this repository does not invent one. District supportive-housing rates for CB7, CB8, CB9, CB10, CB11, and the citywide average are transcribed from the printed comparison on page 29.
+
+## 311 requests
+
+The report summarizes mental-health, homelessness, and housing requests for 2023 and 2024, then splits mental-health requests across four tracts. The scripted extract asks NYC Open Data (`erm2-nwe9`) for complaint-type counts in community board `09 MANHATTAN` during those two calendar years. The aggregation runs on the open-data server. The citywide file is not downloaded.
+
+The report's category names are not 311 complaint types. The resolved table keeps two types that the complaint-type field actually uses: Homeless Person Assistance and Encampment. Bus-stop shelter complaints are left out. There is no tract split, because the extract is a community-board total.
+
+{{< include _generated/resolved_requests.md >}}
+
+Printed category names and the four-tract split stay in the published table. The comparison is on the reproducibility page.
+
+## What each pipeline supplies
+
+| Pipeline | Resolved table | What stays in the PDF only |
+| --- | --- | --- |
+| Census income | 2023 five-year medians for the 20 MN09 tracts | Later chapter incomes that use a different figure for the same tract number |
+| Housing inventory | Two HPD buildings, plus 1727 Amsterdam listed and excluded from the sum | The 1,226 / 749 headline and the nine printed project rows |
+| Services | The weighted saturation formula, with no score | Printed indexes 137, 42, 58, and 35 |
+| 311 counts | Homeless Person Assistance and Encampment, by year | Mental-health, homelessness, and housing-assistance category totals |

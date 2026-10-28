@@ -1,0 +1,6 @@
+tract_id,mh_per_1000,sh_per_1000,fp_per_1000,distance_to_mh_miles,ssi_printed,is_district_average,printed_page
+219,8.2,18.6,1.4,0.2,137,false,54
+221,3.1,0,0.8,1.1,42,false,54
+209,4.7,6.2,1.2,0.3,58,false,54
+231,2.8,1.8,0.6,0.7,35,false,54
+CB9,4.4,9.7,1.0,0.6,100,true,54

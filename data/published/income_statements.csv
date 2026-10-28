@@ -1,0 +1,23 @@
+statement_id,subject,value,value_note,measure,printed_page,where_in_report
+guide_cb9_45700,CB9 median,45700,across all tracts,median household income,7,AMI overview
+gap_cb9_64698,CB9 median,64698,used in the affordability gap and the neighborhood summary,median household income,12,Part 1 baseline
+guide_219_20912,Tract 219,20912,tract reference guide,median household income,6,Reference guide
+body_219_17584,Tract 219,17584,narrative profile and key statistics,median household income,18,Manhattanville profile
+guide_219_pov_43_8,Tract 219 poverty,43.8,tract reference guide,poverty rate percent,6,Reference guide
+body_219_pov_62,Tract 219 poverty,62,printed with a tilde,poverty rate percent,18,Manhattanville profile
+guide_209_28015,Tract 209.01,28015,tract reference guide,median household income,6,Reference guide
+body_209_22183,Tract 209.01,22183,Morningside Heights tract profile,median household income,15,Morningside profile
+later_209_56580,Tract 209.01,56580,later chapters attach the Morningside Heights neighborhood median to this tract id,median household income,27,Project and standards chapters
+guide_211_79522,Tract 211,79522,tract reference guide,median household income,6,Reference guide
+body_211_49431,Tract 211,49431,Morningside Heights tract profile,median household income,15,Morningside profile
+guide_225_58015,Tract 225,58015,guide places the tract in Hamilton Heights,median household income,6,Reference guide
+body_225_35566,Tract 225,35566,profile places the tract in Manhattanville,median household income,18,Manhattanville profile
+guide_229_59145,Tract 229,59145,guide places the tract in Hamilton Heights,median household income,6,Reference guide
+body_229_24806,Tract 229,24806,profile places the tract in Manhattanville,median household income,19,Manhattanville profile
+guide_233_83232,Tract 233,83232,tract reference guide,median household income,7,Reference guide
+body_233_51656,Tract 233,51656,Hamilton Heights tract profile,median household income,20,Hamilton Heights profile
+guide_205_highest,Tract 205,208500,guide calls this the highest-income tract in CB9,median household income,5,Reference guide
+body_231_highest,Tract 231.01,79713,profile calls this the highest-income tract in CB9; printed with a tilde,median household income,20,Hamilton Heights profile
+guide_231_67175,Tract 231,67175,tract reference guide uses 231 rather than 231.01,median household income,7,Reference guide
+summary_morningside_poorest,Morningside Heights poorest tract,56580,summary table repeats the neighborhood median as the poorest-tract median,median household income,21,Neighborhood summary table
+body_209_as_poorest_pocket,Tract 209.01 as a poverty pocket,22183,same chapter's tract profile,median household income,15,Morningside profile

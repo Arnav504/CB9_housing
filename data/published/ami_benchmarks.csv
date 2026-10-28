@@ -1,0 +1,16 @@
+benchmark_id,label,value,unit,universe,vintage,printed_page
+cb9_median_gap,CB9 median household income used in the affordability gap,64698,dollars,CB9 households,ACS 2023,12
+cb9_median_alt,CB9 median household income in the AMI overview,45700,dollars,Described as the median across all tracts,Printed with the AMI overview,7
+ami_100_hh3,100 percent of AMI for a family of 3,145800,dollars,NYC family of 3,2025 HUD figures as printed,12
+ami_80_hh3,80 percent of AMI for a family of 3,116640,dollars,NYC family of 3,2025 HUD figures as printed,15
+ami_60_hh3,60 percent of AMI for a family of 3,87480,dollars,NYC family of 3,2025 HUD figures as printed,15
+ami_50_hh3,50 percent of AMI for a family of 3,72900,dollars,NYC family of 3,2025 HUD figures as printed,14
+ami_30_hh3,30 percent of AMI for a family of 3,43740,dollars,NYC family of 3,2025 HUD figures as printed,14
+ami_100_hh4_2024,NYC metro AMI for a family of 4,127100,dollars,NYC metropolitan area family of 4,2024,7
+gap_dollars_printed,Printed affordability gap in dollars,81102,dollars,100 percent AMI family of 3 minus the CB9 median used in the gap,2025 AMI and ACS 2023,13
+gap_percent_printed,Printed affordability gap as a percent of the CB9 median,125.4,percent,Same comparison as the dollar gap,2025 AMI and ACS 2023,13
+morningside_median,Morningside Heights median household income,56580,dollars,"Tracts 197.01, 209.01, and 211",ACS 2023,14
+manhattanville_average_tract_median,Manhattanville average of tract medians,38400,dollars,Described as the average tract median,ACS 2023,16
+hamilton_median,Hamilton Heights median household income,62100,dollars,"Tracts 231.01, 233, 235.01, and 237",ACS 2023,19
+tract_219_body,Tract 219 median in the narrative profiles,17584,dollars,Tract 219 households,ACS 2023,18
+tract_231_body_high,Upper end of the printed tract range in the key statistics,62100,dollars,Labeled Tract 231 in the key statistics,ACS 2023,11

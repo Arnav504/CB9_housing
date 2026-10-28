@@ -1,0 +1,25 @@
+{
+  "hpd": {
+    "retrieved_on": "2026-10-27",
+    "rows": 162,
+    "community_board": "MN-09",
+    "source": "https://data.cityofnewyork.us/resource/hg8x-zxpr.json"
+  },
+  "requests_311": {
+    "retrieved_on": "2026-10-27",
+    "rows": 287,
+    "community_board": "09 MANHATTAN",
+    "years": "2023-2024",
+    "source": "https://data.cityofnewyork.us/resource/erm2-nwe9.json"
+  },
+  "acs": {
+    "retrieved_on": "2026-10-27",
+    "rows": 20,
+    "vintage": "2023 5-year",
+    "geography": "Manhattan CDTA MN09",
+    "channel": "census_summary_file",
+    "suppressed_median_income": [
+      "217.03"
+    ]
+  }
+}

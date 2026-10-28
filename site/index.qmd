@@ -1,0 +1,24 @@
+---
+title: "Methods companion"
+---
+
+<p class="kicker">Manhattan Community Board 9</p>
+
+This site keeps the housing analysis in two layers. The tables on Geography, Analysis, and the saturation page are calculated from one source each: the 2023 Census estimates for the current MN09 tracts, HPD building records, the borough president's recommendation for 1727 Amsterdam, and two 311 complaint types. The [housing analysis PDF](files/cb9-housing-analysis.pdf) is the current policy document. It has not been rewritten.
+
+Prepared by Arnav Sahai. Edited by Cameron Clarke, Co-Chair of the Health & Environment Committee.
+
+## Two questions
+
+The report asks two questions for the board.
+
+1. **Affordability.** When a project is marketed at a share of regional Area Median Income, what income does that require, and how does that income compare with households in CB9?
+2. **Distribution.** Where inside the district are supportive housing and safety-net services concentrated, relative to the district average?
+
+The reading order is the same: geography, pipelines, the affordability and inventory tables, then the saturation formula. The report page points at the PDF. Reproducibility keeps the printed figures next to the figures those printed inputs produce, and next to the public extracts.
+
+## What is calculated here
+
+Tract incomes are the Census Bureau's 2023 five-year medians. They are not averaged into a district median. Project units are summed only for buildings HPD records. The saturation formula is written out, and it is not given a score, because this repository does not have the service-site list that formula needs. Where the PDF prints a different income, a different unit total, or an index score, that difference stays on the [reproducibility](reproducibility.qmd) page.
+
+[Start with the tract table](geography.qmd), or [open the PDF](files/cb9-housing-analysis.pdf).

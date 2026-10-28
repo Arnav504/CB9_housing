@@ -1,0 +1,18 @@
+area,ami_pct,income_required,access_text,printed_page,header_meaning
+Morningside Heights,30,43740,~18%,14,Share of residents with access
+Morningside Heights,50,72900,~38%,14,Share of residents with access
+Morningside Heights,60,87480,~42%,14,Share of residents with access
+Morningside Heights,80,116640,~58%,15,Share of residents with access
+Morningside Heights,100,145800,~14%,15,Share of residents with access
+Tract 219,30,43740,~94%,16,Header says access; footnote describes exclusion
+Tract 219,50,72900,~98%+,16,Header says access; footnote describes exclusion
+Tract 219,60,87480,~99%+,16,Header says access; footnote describes exclusion
+Tract 221,30,43740,~45%,17,Share of residents with access
+Tract 221,50,72900,~68%,17,Share of residents with access
+Tract 221,60,87480,~72%,17,Share of residents with access
+Tract 221,80,116640,~88%,17,Share of residents with access
+Hamilton Heights,30,43740,~20%,20,Share of residents with access
+Hamilton Heights,50,72900,~40%,20,Share of residents with access
+Hamilton Heights,60,87480,~45%,20,Share of residents with access
+Hamilton Heights,80,116640,~60%,20,Share of residents with access
+Hamilton Heights,100,145800,~15%,20,Share of residents with access

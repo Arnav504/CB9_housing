@@ -1,0 +1,70 @@
+/*-- scss:defaults --*/
+$primary: #1b334f;
+$link-color: #1b334f;
+$body-bg: #f6f3ee;
+$body-color: #1c1917;
+$font-family-sans-serif: "Source Sans 3", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$headings-font-family: "Newsreader", Georgia, "Times New Roman", serif;
+$headings-color: #1b334f;
+$navbar-bg: #1b334f;
+$navbar-fg: #f6f3ee;
+
+/*-- scss:rules --*/
+body {
+  font-size: 1.05rem;
+}
+
+h1, h2, h3 {
+  font-weight: 560;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: 2.45rem;
+  line-height: 1.12;
+  margin-bottom: 0.6rem;
+}
+
+.kicker {
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #9a3412;
+  margin-bottom: 0.4rem;
+}
+
+.lede {
+  font-size: 1.2rem;
+  line-height: 1.45;
+  max-width: 40rem;
+}
+
+nav.navbar {
+  font-family: "Source Sans 3", sans-serif;
+}
+
+table {
+  font-size: 0.92rem;
+  width: 100%;
+}
+
+table th {
+  font-weight: 700;
+  border-bottom: 2px solid #1b334f;
+}
+
+table td, table th {
+  padding: 0.4rem 0.55rem;
+  vertical-align: top;
+}
+
+.quarto-figure img, img {
+  background: white;
+  border: 1px solid #e7e1d8;
+}
+
+#title-block-header .quarto-title-meta {
+  font-family: "Source Sans 3", sans-serif;
+}

@@ -1,0 +1,15 @@
+inventory,project_id,project_name,address,total_units,affordable_units,ami_range,tract,deep_affordability,status,report_label,printed_page
+five_project,1727_amsterdam,1727 Amsterdam Ave,,215,215,30-60%,,,"","Deep affordability (but 60% supportive)",23
+five_project,ancp,ANCP Morningside,,42,42,90-100%,,,"","Requires $131k-$146k income",23
+five_project,ps186,PS 186 / The Residences at PS 186,525 W 145th St,79,79,40-165%,,,"Completed 2016","100% affordable historic conversion; mixed-income (40–165% AMI)",23
+five_project,sunrose,Sunrose Tower,620 W 153rd St,238,72,130%,,,"Completed 2023","Luxury-oriented; only 30% affordable, all at 130% AMI",23
+five_project,columbia,Columbia Manhattanville,,230,92,60-100%,,,"","Minimal local benefit",23
+expanded,general_grant,General Grant Houses (renovation),405-475 W 125 St,382,382,30-60%,197.01,100%,Complete,Complete,25
+expanded,morningside_gardens,Morningside Gardens (renovation),W 123-125 St,142,142,30-60%,197.01,100%,Complete,Complete,25
+expanded,1727_amsterdam,1727 Amsterdam Ave,1727 Amsterdam Ave,215,215,30-60%,219,40%,Occupied 2024,Supported,25
+expanded,ancp,ANCP Morningside,Morningside Ave,42,42,90-100%,209.01,0%,Completed,Opposed,25
+expanded,ps186,PS 186 / Residences at PS 186,525 W 145th St,79,79,40-165%,221,~25%,Proposed,Oppose,26
+expanded,sunrose,Sunrose Tower,620 W 153rd St,238,72,130%,219,0%,Occupied 2023,Support,26
+expanded,columbia,Columbia Manhattanville,125 Amsterdam Ave,230,92,60-100%,219,0%,Proposed,Mixed,26
+expanded,2975_broadway,2975 Broadway,2975 Broadway,220,88,60-100%,221.01,0%,Pending,Oppose,26
+expanded,harlem_commons,Harlem Commons,Frederick Douglass Blvd,165,66,60-100%,223,0%,Pending,Oppose,26

@@ -1,0 +1,19 @@
+tract_id,neighborhood_as_printed,median_income,population,poverty_rate_pct,homeownership_pct,median_rent,role,printed_page
+199,"Morningside Heights/Hamilton Heights (northeastern section)",103636,9013,22.0,35.8,2079,"High-income tract representing gentrified/institutional areas; significant rent burden (46.0% of renters severely cost-burdened).",5
+201.01,"Morningside Heights/Hamilton Heights (Columbia University area)",153826,1976,20.3,20.3,3198,"Very high-income tract with institutional/student population; low poverty despite high rents due to university subsidies.",5
+203,"Morningside Heights (central section)",65806,3930,23.6,5.1,2528,"Middle-income tract with high rent burden (37.2% severely cost-burdened); predominantly renter-occupied.",5
+205,"Morningside Heights (western section)",208500,5606,7.0,19.3,3222,"Highest-income tract in CB9; affluent residential area with relatively low affordability gap.",5
+207.01,"Morningside Heights (Columbia University campus core)",82778,2856,23.3,8.2,2292,"University-dominated tract; mixed-income with high institutional presence.",6
+209.01,"Morningside Heights (northern section) & Grant Houses",28015,3382,36.3,9.8,919,"Low-income tract; 67.9% of renters severely cost-burdened; potential service expansion area.",6
+211,"Morningside Heights/Manhattanville (border area)",79522,10222,26.4,28.7,1711,"Mixed-income tract; moderate affordability challenges; 50.5% of renters severely cost-burdened.",6
+213.03,Manhattanville,55466,6381,20.2,7.9,1615,"Moderate-income tract; 37.3% of renters severely cost-burdened; predominantly renter-occupied.",6
+219,"Manhattanville (Manhattanville Houses)",20912,5400,43.8,2.0,633,"Primary focus tract; highest poverty, highest supportive housing density, and most acute affordability gap in CB9. Contains 12 of CB9's mental health sites. 71.8% of renters are severely cost-burdened.",6
+222,"Hamilton Heights (southern portion)",82438,3501,19.6,27.8,1923,"Printed label is Tract 222 (Census Tract 221). Moderate-income tract; 36.2% of renters severely cost-burdened; potential equity counterpart to Tract 219.",6
+223.01,"Manhattanville/Hamilton Heights (St. Nicholas Historic District area)",49410,7270,27.8,8.6,1695,"Referenced in connection with Heritage Health & Housing's supportive facility concentration alongside Tract 219; 54.8% of renters severely cost-burdened.",6
+225,"Hamilton Heights (central section)",58015,10605,23.3,17.6,1579,"Moderate-income tract; 38.9% of renters severely cost-burdened; largest population among CB9 tracts.",6
+227,"Hamilton Heights (western section)",70120,5694,22.3,19.4,1855,"Middle-income tract; 30.5% of renters severely cost-burdened; relatively balanced affordability profile.",6
+229,"Hamilton Heights (central-northern section)",59145,8471,30.0,10.6,1877,"Moderate-income tract with elevated poverty; 43.4% of renters severely cost-burdened; service expansion consideration.",6
+231,"Hamilton Heights (northern section)",67175,6824,24.8,17.4,1656,"Under-represented tract with hidden demand for services (16% of CB9 mental health requests); 37.9% of renters severely cost-burdened. Policy priority: regional service rebalancing.",7
+233,"Hamilton Heights (northwestern section)",83232,7181,17.2,10.8,2217,"Middle-to-upper-income tract; 45.4% of renters are severely cost-burdened despite higher incomes.",7
+235.01,"Hamilton Heights (northern border area)",80337,7177,16.1,17.6,1822,"Middle-income tract; 39.2% of renters severely cost-burdened; moderate affordability challenges.",7
+237,"Hamilton Heights (northeastern section)",60116,6578,31.0,8.5,1807,"Moderate-income tract with elevated poverty; 50.0% of renters severely cost-burdened; service expansion consideration.",7

@@ -1,0 +1,6 @@
+limit_id,ami_pct,household_size,income_limit,year,source,source_url
+ami30_hh3,30,3,43750,2025,NYCHA income-limit table as of 2025,https://home4.nyc.gov/site/nycha/residents/pay-rent.page
+ami50_hh3,50,3,72900,2025,NYCHA income-limit table as of 2025,https://home4.nyc.gov/site/nycha/residents/pay-rent.page
+ami60_hh3,60,3,87480,2025,NYCHA income-limit table as of 2025,https://home4.nyc.gov/site/nycha/residents/pay-rent.page
+ami80_hh3,80,3,116650,2025,NYCHA income-limit table as of 2025,https://home4.nyc.gov/site/nycha/residents/pay-rent.page
+ami100_hh3,100,3,145800,2025,NYCHA income-limit table as of 2025,https://home4.nyc.gov/site/nycha/residents/pay-rent.page

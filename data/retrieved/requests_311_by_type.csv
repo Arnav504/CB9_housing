@@ -1,0 +1,288 @@
+year,complaint_type,requests
+2023,HEAT/HOT WATER,7084
+2023,Noise - Residential,6978
+2023,Noise - Street/Sidewalk,5674
+2023,Illegal Parking,4368
+2023,UNSANITARY CONDITION,2657
+2023,PAINT/PLASTER,1817
+2023,Noise - Commercial,1691
+2023,PLUMBING,1589
+2023,DOOR/WINDOW,1227
+2023,WATER LEAK,1186
+2023,Water System,959
+2023,GENERAL,910
+2023,FLOORING/STAIRS,788
+2023,ELECTRIC,735
+2023,Rodent,733
+2023,Noise - Vehicle,646
+2023,Noise,630
+2023,Dirty Condition,629
+2023,New Tree Request,617
+2023,APPLIANCE,585
+2023,Vendor Enforcement,525
+2023,Street Condition,493
+2023,Elevator,473
+2023,Encampment,454
+2023,Street Light Condition,432
+2023,Blocked Driveway,406
+2023,Traffic Signal Condition,393
+2023,Homeless Person Assistance,388
+2023,Mobile Food Vendor,340
+2023,General Construction/Plumbing,312
+2023,Maintenance or Facility,306
+2023,SAFETY,265
+2023,Derelict Vehicles,238
+2023,Illegal Fireworks,236
+2023,Abandoned Vehicle,219
+2023,Non-Emergency Police Matter,214
+2023,Illegal Dumping,203
+2023,Lead,187
+2023,Sidewalk Condition,159
+2023,Missed Collection,159
+2023,Graffiti,156
+2023,Smoking,152
+2023,Noise - Park,145
+2023,Consumer Complaint,142
+2023,Noise - Helicopter,138
+2023,For Hire Vehicle Complaint,136
+2023,Residential Disposal Complaint,133
+2023,Air Quality,107
+2023,Indoor Air Quality,106
+2023,Litter Basket Request,106
+2023,Panhandling,102
+2023,Drug Activity,101
+2023,Sewer,97
+2023,Real Time Enforcement,96
+2023,Damaged Tree,84
+2023,Animal-Abuse,83
+2023,Building/Use,82
+2023,Food Establishment,82
+2023,Obstruction,73
+2023,Special Projects Inspection Team (SPIT),64
+2023,Water Leak,60
+2023,Boilers,57
+2023,Paint/Plaster,52
+2023,Dead Animal,50
+2023,Plumbing,47
+2023,Heat/Hot Water,46
+2023,ELEVATOR,44
+2023,Street Sweeping Complaint,43
+2023,Overgrown Tree/Branches,41
+2023,Animal in a Park,41
+2023,Outdoor Dining,40
+2023,Lost Property,36
+2023,Illegal Tree Damage,33
+2023,Taxi Complaint,33
+2023,OUTSIDE BUILDING,30
+2023,Door/Window,29
+2023,Curb Condition,29
+2023,Food Poisoning,29
+2023,Violation of Park Rules,28
+2023,Dumpster Complaint,27
+2023,Emergency Response Team (ERT),27
+2023,Litter Basket Complaint,27
+2023,Sanitation Worker or Vehicle Complaint,26
+2023,Electrical,23
+2023,Bike/Roller/Skate Chronic,22
+2023,Broken Parking Meter,22
+2023,Unsanitary Condition,21
+2023,Traffic,21
+2023,Dead/Dying Tree,20
+2023,Street Sign - Damaged,19
+2023,Abandoned Bike,18
+2023,Asbestos,17
+2023,LinkNYC,17
+2023,Disorderly Youth,17
+2023,Street Sign - Missing,16
+2023,Water Quality,16
+2023,Root/Sewer/Sidewalk Condition,15
+2023,Urinating in Public,15
+2023,Street Sign - Dangling,15
+2023,Construction Lead Dust,15
+2023,Bus Stop Shelter Complaint,14
+2023,Drinking,14
+2023,Water Conservation,13
+2023,Scaffold Safety,13
+2023,Day Care,12
+2023,General,12
+2023,Flooring/Stairs,12
+2023,Hazardous Materials,12
+2023,Noise - House of Worship,10
+2023,Smoking or Vaping,10
+2023,Commercial Disposal Complaint,9
+2023,Unsanitary Animal Pvt Property,8
+2023,Appliance,8
+2023,Unleashed Dog,8
+2023,School Maintenance,8
+2023,Harboring Bees/Wasps,7
+2023,Safety,6
+2023,Unsanitary Pigeon Condition,6
+2023,Plant,6
+2023,Lot Condition,6
+2023,Investigations and Discipline (IAD),6
+2023,Bike Rack Condition,5
+2023,Bus Stop Shelter Placement,5
+2023,Mold,4
+2023,Standing Water,4
+2023,Non-Residential Heat,4
+2023,Illegal Posting,4
+2023,Indoor Sewage,3
+2023,BEST/Site Safety,3
+2023,Taxi Report,3
+2023,Radioactive Material,3
+2023,Recycling Basket Complaint,3
+2023,Green Taxi Complaint,3
+2023,Drinking Water,2
+2023,For Hire Vehicle Report,2
+2023,Animal Facility - No Permit,2
+2023,Incorrect Data,1
+2023,Sewer Maintenance,1
+2023,Lifeguard,1
+2023,Public Toilet,1
+2023,Dispatched Taxi Complaint,1
+2023,Water Maintenance,1
+2023,Industrial Waste,1
+2023,Electric,1
+2023,Illegal Animal Kept as Pet,1
+2023,Illegal Animal Sold,1
+2023,Building Condition,1
+2023,Retailer Complaint,1
+2023,Building Drinking Water Tank,1
+2024,HEAT/HOT WATER,7715
+2024,Illegal Parking,7497
+2024,Noise - Street/Sidewalk,7160
+2024,Noise - Residential,6051
+2024,UNSANITARY CONDITION,2632
+2024,PAINT/PLASTER,1784
+2024,Noise - Commercial,1524
+2024,PLUMBING,1521
+2024,Water System,1311
+2024,DOOR/WINDOW,1244
+2024,Mobile Food Vendor,1229
+2024,WATER LEAK,1143
+2024,GENERAL,825
+2024,FLOORING/STAIRS,821
+2024,Dirty Condition,803
+2024,Noise,802
+2024,Vendor Enforcement,755
+2024,Rodent,653
+2024,Noise - Vehicle,652
+2024,New Tree Request,614
+2024,ELECTRIC,600
+2024,Elevator,561
+2024,APPLIANCE,547
+2024,Encampment,494
+2024,Traffic Signal Condition,445
+2024,Maintenance or Facility,415
+2024,Street Condition,373
+2024,Illegal Fireworks,355
+2024,For Hire Vehicle Complaint,335
+2024,Blocked Driveway,326
+2024,Homeless Person Assistance,317
+2024,General Construction/Plumbing,301
+2024,Street Light Condition,300
+2024,Graffiti,296
+2024,SAFETY,265
+2024,Lead,225
+2024,Derelict Vehicles,224
+2024,Sidewalk Condition,222
+2024,Illegal Dumping,220
+2024,Non-Emergency Police Matter,204
+2024,Abandoned Vehicle,196
+2024,Damaged Tree,181
+2024,Smoking or Vaping,161
+2024,Air Quality,150
+2024,Indoor Air Quality,135
+2024,Consumer Complaint,126
+2024,Real Time Enforcement,124
+2024,Food Establishment,113
+2024,Building/Use,111
+2024,OUTSIDE BUILDING,106
+2024,Missed Collection,98
+2024,Noise - Park,97
+2024,Drug Activity,91
+2024,Boilers,87
+2024,Sewer,87
+2024,Residential Disposal Complaint,81
+2024,Animal-Abuse,80
+2024,Panhandling,73
+2024,Litter Basket Request,64
+2024,Obstruction,63
+2024,ELEVATOR,62
+2024,Noise - Helicopter,60
+2024,Smoking,55
+2024,Curb Condition,52
+2024,Special Projects Inspection Team (SPIT),52
+2024,Animal in a Park,50
+2024,Drinking,50
+2024,Illegal Tree Damage,49
+2024,Snow or Ice,44
+2024,Disorderly Youth,44
+2024,Dead/Dying Tree,43
+2024,Outdoor Dining,40
+2024,Food Poisoning,39
+2024,Construction Lead Dust,39
+2024,Violation of Park Rules,38
+2024,Dead Animal,38
+2024,Unsanitary Animal Pvt Property,35
+2024,Lost Property,30
+2024,Street Sign - Damaged,28
+2024,Dumpster Complaint,28
+2024,Water Conservation,28
+2024,Emergency Response Team (ERT),28
+2024,Street Sweeping Complaint,27
+2024,Electrical,27
+2024,Commercial Disposal Complaint,27
+2024,Asbestos,25
+2024,Hazardous Materials,24
+2024,Water Quality,24
+2024,Root/Sewer/Sidewalk Condition,23
+2024,Taxi Complaint,23
+2024,Overgrown Tree/Branches,23
+2024,Plumbing,22
+2024,Plant,21
+2024,Street Sign - Dangling,20
+2024,Litter Basket Complaint,20
+2024,Sanitation Worker or Vehicle Complaint,20
+2024,Abandoned Bike,19
+2024,Street Sign - Missing,18
+2024,Urinating in Public,15
+2024,Illegal Posting,15
+2024,Bus Stop Shelter Complaint,15
+2024,School Maintenance,13
+2024,Bike/Roller/Skate Chronic,12
+2024,Unsanitary Pigeon Condition,11
+2024,Noise - House of Worship,10
+2024,Day Care,8
+2024,Non-Residential Heat,8
+2024,Drinking Water,8
+2024,Industrial Waste,7
+2024,Traffic,7
+2024,Unleashed Dog,7
+2024,Indoor Sewage,6
+2024,Standing Water,6
+2024,Harboring Bees/Wasps,4
+2024,LinkNYC,4
+2024,Wayfinding,4
+2024,Mold,4
+2024,Scaffold Safety,4
+2024,Taxi Report,3
+2024,BEST/Site Safety,3
+2024,Broken Parking Meter,3
+2024,Posting Advertisement,3
+2024,For Hire Vehicle Report,3
+2024,Green Taxi Complaint,3
+2024,Lifeguard,2
+2024,Mosquitoes,2
+2024,Investigations and Discipline (IAD),2
+2024,Seasonal Collection,2
+2024,Beach/Pool/Sauna Complaint,2
+2024,Lot Condition,2
+2024,Cranes and Derricks,1
+2024,Recycling Basket Complaint,1
+2024,Uprooted Stump,1
+2024,Incorrect Data,1
+2024,Taxi Compliment,1
+2024,Bus Stop Shelter Placement,1
+2024,Public Toilet,1
+2024,Bike Rack Condition,1
