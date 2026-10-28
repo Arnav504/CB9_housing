@@ -2,7 +2,7 @@
 
 Methods companion for the Manhattan Community Board 9 housing analysis. The policy document is [`report/cb9-housing-analysis.pdf`](report/cb9-housing-analysis.pdf). The site's tract, project, and 311 tables are built from the 2023 Census estimates, HPD building records, the borough president's recommendation for 1727 Amsterdam, and two 311 complaint types. The saturation formula is stated and is not scored. Geography draws Western Harlem in Manhattan from the 2020 tract boundaries.
 
-Prepared by Arnav Sahai. Cameron Clarke edited the policy report.
+Prepared by Arnav Sahai.
 
 ## Read it in order
 

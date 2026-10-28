@@ -6,7 +6,7 @@ title: "Methods companion"
 
 This site explains the housing analysis for Manhattan Community Board 9. The tract table, the income comparison, and the project register each come from one public source: the Census Bureau's 2023 five-year estimates, the 2025 income limits for a three-person household, HPD building records, and the borough president's recommendation for 1727 Amsterdam. The saturation index is defined here and is not given a score.
 
-Prepared by Arnav Sahai. Edited by Cameron Clarke, Co-Chair of the Health & Environment Committee.
+Prepared by Arnav Sahai.
 
 ## Two questions
 

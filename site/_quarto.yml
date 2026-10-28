@@ -26,7 +26,7 @@ website:
       - href: report.qmd
         text: The report
   page-footer:
-    left: "Prepared by Arnav Sahai. Cameron Clarke edited the policy report."
+    left: "Prepared by Arnav Sahai."
     right: "[Download the PDF](files/cb9-housing-analysis.pdf)"
 
 format:
