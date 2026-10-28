@@ -9,6 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
+from cb9.geography_map import write_geography_map
 from cb9.figures import (
     ami_gap_chart,
     inventory_chart,
@@ -35,7 +36,7 @@ from cb9.narrative import (
     ssi_worked_example_md,
     tract_guide_md,
 )
-from cb9.paths import GENERATED, REPORT_PDF, RESOLVED, SITE_FILES
+from cb9.paths import GENERATED, REPORT_PDF, RESOLVED, RETRIEVED, SITE_FILES
 from cb9.resolve import ami_limits, assert_consistent, projects as resolved_projects
 from cb9.resolve import requests as resolved_requests
 from cb9.resolve import tract_crosswalk, tracts as resolved_tracts
@@ -87,6 +88,7 @@ def main() -> None:
     _write("resolved_requests.md", resolved_requests_md())
     _write("resolved_ami.md", ami_md())
 
+    write_geography_map(RETRIEVED / "geo")
     tract_income_chart(resolved_tracts(), ami_limits())
     verified_projects_chart(resolved_projects())
     ami_gap_chart(values["cb9_median_gap"], values["ami_100_hh3"])

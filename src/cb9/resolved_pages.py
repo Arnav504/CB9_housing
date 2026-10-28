@@ -82,8 +82,8 @@ def projects_md() -> str:
             ["Project", "Address", "Tract", "Status", "Record date", "Total units", "Counted affordable", "In the total"],
             rows,
         )
-        + "\nPrinted projects left out of the total:\n\n"
-        + md_table(["Printed project", "Reason"], omitted)
+        + "\nNamed projects that are not in the unit total:\n\n"
+        + md_table(["Project", "Reason"], omitted)
     )
 
 

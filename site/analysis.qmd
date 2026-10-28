@@ -2,7 +2,7 @@
 title: "Analysis"
 ---
 
-The affordability reading uses the tract medians from the geography page and the 2025 income limits for a family of three. The inventory uses HPD building rows, plus one proposal that HPD does not list.
+The affordability reading compares the tract medians with the 2025 income limits for a family of three. The inventory counts units only where HPD has the building.
 
 ## Income limits as reference lines
 
@@ -10,15 +10,15 @@ Area Median Income is the federal benchmark housing programs use to describe a r
 
 {{< include _generated/resolved_ami.md >}}
 
-These lines are limits for a three-person household. They are not the share of CB9 residents who qualify, and they are not a median income for the district. The chart places each tract median against the 30, 60, and 100 percent lines. A tract median below a line does not mean the households in that tract are eligible for a unit at that band. Eligibility still depends on household size, rent, and the program's own rules.
+These lines are limits for a three-person household. They are not the share of residents who qualify, and they are not a median income for the district. The chart places each tract median against the 30, 60, and 100 percent lines. A tract median below a line does not mean the households in that tract are eligible for a unit at that band. Eligibility still depends on household size, rent, and the program's own rules.
 
 ![Median household income in each MN09 tract, 2023 five-year estimates. Dashed lines are the 2025 three-person AMI limits.](figures/tract_medians.svg)
 
-Tract 217.03 is omitted from the chart because its median is suppressed. The PDF's comparison of a $64,698 district median with the $145,800 limit is a printed calculation. It is reproduced on the [reproducibility](reproducibility.qmd) page and is not a row in the tract table.
+Tract 217.03 is omitted from the chart because its median is suppressed.
 
 ## Housing inventory
 
-A project enters the unit total only when HPD's Affordable Housing Production by Building dataset has the building. HPD's counted-units field is the affordable count. It is not reclassified into the report's 30, 60, and 80 percent bands.
+A project enters the unit total only when HPD's Affordable Housing Production by Building dataset has the building. HPD's counted-units field is the affordable count. It stays in HPD's own income categories.
 
 {{< include _generated/resolved_projects.md >}}
 
@@ -27,8 +27,6 @@ A project enters the unit total only when HPD's Affordable Housing Production by
 PS 186 is HPD project 51357 at 525 West 145 Street, census tract 229, completed on November 16, 2016: 79 total units, all 79 counted. Sunrose is the HPD row for 620 West 153 Street, census tract 237, completed on November 21, 2023: 238 total units, of which 72 are counted affordable. Together that is 317 total units and 151 counted affordable units.
 
 1727 Amsterdam Avenue is a proposal in the Manhattan Borough President's recommendation of December 10, 2025 (C260071HAM, Block 2060 Lot 1). The recommendation describes approximately 200 units. The affordable split is not recorded as an exact count here, so those 200 units are not added to the 317.
-
-The PDF's pipeline headline of 1,226 total and 749 affordable units, and the sum of its nine printed rows, stay on the reproducibility page. They are not recomputed from this register.
 
 ## How the pipelines meet
 

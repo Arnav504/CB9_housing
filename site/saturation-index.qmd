@@ -2,7 +2,7 @@
 title: "Saturation index"
 ---
 
-The Service Saturation Index is the report's composite for one equity question: which tracts carry more of CB9's supportive housing, mental-health sites, and food pantries than the district average, relative to population.
+The Service Saturation Index is a composite for one equity question: which tracts carry more of the district's supportive housing, mental-health sites, and food pantries than the district average, relative to population.
 
 It is a density index. It is not a count of supportive units divided by an eligible population, and it does not by itself say whether the stock exceeds modeled demand.
 
@@ -26,10 +26,8 @@ An index of 100 means the tract matches the district average on this composite. 
 
 The weights are policy weights. Mental-health sites and supportive housing each receive 0.4. Food pantries receive 0.2. The weights are not estimated from a regression. They sum to 1.
 
-## No score on this page
+## No score yet
 
-The formula needs a count of sites and units, and a population, for each tract. This repository does not have that site list. The printed matrix on page 54 of the PDF supplies rates, and applying this formula to those rates does not return the scores the PDF prints. Both results are on the [reproducibility](reproducibility.qmd) page. Neither is published here as a finding, and neither is used to assign a tract to a policy band.
+The formula needs a count of sites and units, and a population, for each tract. This repository does not have that site list, so it does not publish an index or assign a tract to a policy band.
 
-The PDF also prints an appendix formula, `(MH + 2×SH + FP)` divided by the same expression at the district averages. That formula is a check of the printed page. The weighted formula above is the definition this site uses.
-
-The report ties the weights to the Comptroller's Fair Share audit. In audit MD22-101A, BTP means beds-to-population. The audit's reported figures, and the statistics the PDF attributes to it, are compared on the reproducibility page.
+In the Comptroller's Fair Share audit, MD22-101A, BTP means beds-to-population. The audit covers fiscal years 2018 through 2022. It reports that 74 percent of 230 sitings were not independently reviewed, and that 40 percent of the 170 Article 9 sitings in that set were in high-BTP districts. Manhattan Community District 9 is among the districts discussed.

@@ -94,6 +94,16 @@ class FormulaTests(unittest.TestCase):
         self.assertIn("221", set(unresolved["report_id"]))
         self.assertIn("222", set(unresolved["report_id"]))
 
+    def test_public_pages_do_not_cite_pdf_locations(self) -> None:
+        site = Path(__file__).resolve().parents[1] / "site"
+        banned = ("printed page", "Figure 1", "reproducibility.qmd", "p. ")
+        for path in site.glob("*.qmd"):
+            if path.name == "reproducibility.qmd":
+                continue
+            text = path.read_text()
+            for phrase in banned:
+                self.assertNotIn(phrase, text, f"{path.name} contains {phrase}")
+
 
 if __name__ == "__main__":
     unittest.main()

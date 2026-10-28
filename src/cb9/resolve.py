@@ -60,7 +60,7 @@ OMITTED_FROM_PDF: list[tuple[str, str]] = [
     ("General Grant Houses renovation", "No HPD row matched this name."),
     ("Morningside Gardens renovation", "No HPD row matched this name."),
     ("ANCP Morningside", "No HPD row matched this name."),
-    ("Columbia Manhattanville, 125 Amsterdam Avenue", "The printed 230-unit project is not the Manhattanville phase rows at 3595 Broadway."),
+    ("Columbia Manhattanville, 125 Amsterdam Avenue", "This project is not the Manhattanville phase rows at 3595 Broadway."),
     ("2975 Broadway", "No HPD row matched this address."),
     ("Harlem Commons", "No HPD row matched this name."),
 ]
